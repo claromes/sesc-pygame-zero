@@ -1,21 +1,36 @@
-#add Actor for giga
+#add score + game over screen
 import pgzrun  #mu editor mode
 from random import randint  #random int numbers
 
 BG_COLOR = "#9469b5"
 
+score = 0
+game_over = False
+
 rob = Actor('robo')
 dot = Actor('dot')
 giga = Actor('giga')
 
+rob.x = 400
+rob.y = 300
+
 def draw():
     screen.fill(BG_COLOR)
+    screen.draw.text("Pontos: " + str(score), color="yellow", topleft=(10, 10))
 
     rob.draw()
     dot.draw()
     giga.draw()
 
+    if game_over:
+        screen.fill("black")
+        screen.draw.text("Total de Pontos: " + str(score),
+                         color="white",
+                         topleft=(10, 10),
+                         fontsize=60)
+
 def update():
+    global score
     move_dot()
     move_giga()
 
@@ -24,16 +39,12 @@ def update():
     giga_touchs_rob = giga.colliderect(rob)
 
     if dot_touchs_rob or giga_touchs_rob:
+        score += 1
         random_rob()
 
-
-''' debug collidepoint()
-def on_mouse_down(pos):
-    if rob.collidepoint(pos):
-        print('Rob')
-    else:
-        print('Out')
-'''
+def time_up():
+    global game_over
+    game_over = True
 
 def random_rob():
     rob.x = randint(115, 700)
@@ -48,11 +59,6 @@ def move_dot():
         dot.y -= 2
     elif keyboard.down:
         dot.y += 2
-    '''
-    elif keyboard.space:
-        dot.x = 400
-        dot.y = 300
-    '''
 
 def move_giga():
     if keyboard.A:
@@ -64,8 +70,6 @@ def move_giga():
     elif keyboard.S:
         giga.y += 2
 
+#set time = 15s
+clock.schedule(time_up, 15)
 pgzrun.go()  #run the code
-
-#https://pyzero.cristianotito.repl.co/
-#https://pygame-zero.readthedocs.io/
-#images by Scratch
