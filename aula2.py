@@ -1,31 +1,34 @@
-#add Actor for giga
 import pgzrun  #mu editor mode
+from pgzhelper import  *
 from random import randint  #random int numbers
 
-BG_COLOR = "#9469b5"
+BG_COLOR = "#F5BB6B"
 
-rob = Actor('robo')
-dot = Actor('dot')
-giga = Actor('giga')
+trophy = Actor('trophy')
+frog = Actor('frog_idle')
+pink = Actor('pink_idle')
+
+trophy.scale = 1.5
+frog.scale = 2
+pink.scale = 2
 
 def draw():
     screen.fill(BG_COLOR)
 
-    rob.draw()
-    dot.draw()
-    giga.draw()
+    trophy.draw()
+    frog.draw()
+    pink.draw()
 
 def update():
-    move_dot()
-    move_giga()
+    move_frog()
+    move_pink()
 
-    #Dot touchs Rob
-    dot_touchs_rob = dot.colliderect(rob)
-    giga_touchs_rob = giga.colliderect(rob)
+    #Frog and Pink touch the Trophy
+    frog_touchs_trophy = frog.collide_pixel(trophy)
+    pink_touchs_trophy = pink.collide_pixel(trophy)
 
-    if dot_touchs_rob or giga_touchs_rob:
-        random_rob()
-
+    if frog_touchs_trophy or pink_touchs_trophy:
+        random_trophy()
 
 ''' debug collidepoint()
 def on_mouse_down(pos):
@@ -35,37 +38,37 @@ def on_mouse_down(pos):
         print('Out')
 '''
 
-def random_rob():
-    rob.x = randint(115, 700)
-    rob.y = randint(180, 500)
+def random_trophy():
+    trophy.x = randint(115, 700)
+    trophy.y = randint(180, 500)
 
-def move_dot():
+def move_frog():
     if keyboard.left:
-        dot.x -= 2
+        frog.x -= 2
     elif keyboard.right:
-        dot.x += 2
+        frog.x += 2
     elif keyboard.up:
-        dot.y -= 2
+        frog.y -= 2
     elif keyboard.down:
-        dot.y += 2
+        frog.y += 2
     '''
     elif keyboard.space:
-        dot.x = 400
-        dot.y = 300
+        frog.x = 400
+        frog.y = 300
     '''
 
-def move_giga():
-    if keyboard.A:
-        giga.x -= 2
-    elif keyboard.D:
-        giga.x += 2
-    elif keyboard.W:
-        giga.y -= 2
-    elif keyboard.S:
-        giga.y += 2
+def move_pink():
+    if keyboard.a:
+        pink.x -= 2
+    elif keyboard.d:
+        pink.x += 2
+    elif keyboard.w:
+        pink.y -= 2
+    elif keyboard.s:
+        pink.y += 2
 
 pgzrun.go()  #run the code
 
 #https://pyzero.cristianotito.repl.co/
 #https://pygame-zero.readthedocs.io/
-#images by Scratch
+#images by Pixel Frog

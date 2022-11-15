@@ -2,34 +2,58 @@
 
 Exercícios do curso de introdução a jogos básicos em Python com Cristiano Tito
 
-## Copyright - Imagens
-Scratch e rawpixel.com/Freepik (aula 4)
-
 # Aula 1
-Introdução ao PyGmae Zero
-
-<img src="./doc/aula1.jpg" width="300">
+Introdução ao Pygame Zero
 
 # Aula 2
 - update()
 - colliderect()
 - keyboard
 
-<img src="./doc/aula2.gif" width="300">
+<img src="./doc/aula2.gif" width="500">
 
 # Aula 3
 - score
-- life
 - game over
 - schedule
 - mouse-up/down
 
-<img src="./doc/aula3.gif" width="300">
-<br>
-<img src="./doc/flappy.gif" width="300">
+<img src="./doc/aula3.gif" width="500">
 
-# Aula 4 - Trabalho final
+# Aula 4
+- life
 - sound
-- list
 
-<img src="./doc/aula4.gif" width="300">
+<img src="./doc/aula4.gif" width="500">
+
+# Trabalho Final - Flappy Game
+- level
+- Python Lists
+
+<img src="./doc/flappy.gif" width="500">
+
+# Copyright
+### Assets
+[Pixel Adventure by Pixel Frog](https://pixelfrog-assets.itch.io/pixel-adventure-1)
+
+[Forest Background by edermunizz](https://edermunizz.itch.io/free-pixel-art-forest)
+
+### Helper
+
+[A Posteriori](https://www.aposteriori.com.sg/pygame-zero-helper/)
+
+### Font
+
+[Pixellari by Zacchary Dempsey-Plante](https://github.com/zedseven/Pixellari)
+
+### Sound FX
+
+[Interface SFX Pack 1 by ObsydianX](https://obsydianx.itch.io/interface-sfx-pack-1)
+
+### Music Themes
+
+[RPG Music Pack by SVL](https://svl.itch.io/rpg-music-pack-svl)
+
+### Exercício Flappy Diver
+
+Scratch

@@ -88,11 +88,3 @@ def diver_pos_after_collide():
     diver.y = HEIGHT / 2
 
 pgzrun.go()
-#https://pygame-zero.readthedocs.io/en/stable/from-scratch.html
-'''
-TODO:
-- score
-- animate tutu and baiacu
-- levels (add octo and increase velocity)
-- sound
-'''

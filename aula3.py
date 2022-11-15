@@ -1,75 +1,104 @@
-#add score + game over screen
-import pgzrun  #mu editor mode
-from random import randint  #random int numbers
+import pgzrun
+from pgzhelper import  *
+from random import randint
 
-BG_COLOR = "#9469b5"
+bg_color = "#F5BB6B"
+green_color = "#72a11d"
+pink_color = "#ea71bd"
 
-score = 0
+score_frog = 0
+score_pink = 0
 game_over = False
+game_time = 15
 
-rob = Actor('robo')
-dot = Actor('dot')
-giga = Actor('giga')
+trophy = Actor('trophy')
+frog = Actor('frog_idle')
+pink = Actor('pink_idle')
 
-rob.x = 400
-rob.y = 300
+trophy.scale = 1.5
+frog.scale = 2
+pink.scale = 2
+
+trophy.x = 400
+trophy.y = 300
 
 def draw():
-    screen.fill(BG_COLOR)
-    screen.draw.text("Pontos: " + str(score), color="yellow", topleft=(10, 10))
+    global bg_color
+    screen.fill(bg_color)
+    screen.draw.text("FROG: " + str(score_frog), color=green_color, topleft=(10, 10))
+    screen.draw.text("PINK: " + str(score_pink), color=pink_color, topleft=(10, 30))
+    screen.draw.text("TIME: " + str(game_time), color="white", midtop=(400, 10))
 
-    rob.draw()
-    dot.draw()
-    giga.draw()
+    trophy.draw()
+    frog.draw()
+    pink.draw()
+
+    if game_time == 4:
+        bg_color = "#f5936b"
 
     if game_over:
-        screen.fill("black")
-        screen.draw.text("Total de Pontos: " + str(score),
-                         color="white",
-                         topleft=(10, 10),
-                         fontsize=60)
+        screen.fill("#D0D0D0")
+        screen.draw.text("GAME OVER", color="white", midtop=(400, 10))
+        screen.draw.text("FROG: " + str(score_frog),
+                         color=green_color,
+                         midtop=(400, 50),
+                         fontsize=30)
+
+        screen.draw.text("PINK: " + str(score_pink),
+                         color=pink_color,
+                         midtop=(400, 80),
+                         fontsize=30)
 
 def update():
-    global score
-    move_dot()
-    move_giga()
+    global score_frog, score_pink, game_time
+    move_frog()
+    move_pink()
 
-    #Dot touchs Rob
-    dot_touchs_rob = dot.colliderect(rob)
-    giga_touchs_rob = giga.colliderect(rob)
+    #Frog and Pink touch the Trophy
+    frog_touchs_trophy = frog.collide_pixel(trophy)
+    pink_touchs_trophy = pink.collide_pixel(trophy)
 
-    if dot_touchs_rob or giga_touchs_rob:
-        score += 1
-        random_rob()
+    if frog_touchs_trophy:
+        score_frog += 1
+        random_trophy()
+    elif pink_touchs_trophy:
+        score_pink += 1
+        random_trophy()
 
 def time_up():
     global game_over
     game_over = True
 
-def random_rob():
-    rob.x = randint(115, 700)
-    rob.y = randint(180, 500)
+def countdown():
+    global game_time
+    game_time -= 1
 
-def move_dot():
+def random_trophy():
+    trophy.x = randint(115, 700)
+    trophy.y = randint(180, 500)
+
+def move_frog():
     if keyboard.left:
-        dot.x -= 2
+        frog.x -= 2
     elif keyboard.right:
-        dot.x += 2
+        frog.x += 2
     elif keyboard.up:
-        dot.y -= 2
+        frog.y -= 2
     elif keyboard.down:
-        dot.y += 2
+        frog.y += 2
 
-def move_giga():
-    if keyboard.A:
-        giga.x -= 2
-    elif keyboard.D:
-        giga.x += 2
-    elif keyboard.W:
-        giga.y -= 2
-    elif keyboard.S:
-        giga.y += 2
+def move_pink():
+    if keyboard.a:
+        pink.x -= 2
+    elif keyboard.d:
+        pink.x += 2
+    elif keyboard.w:
+        pink.y -= 2
+    elif keyboard.s:
+        pink.y += 2
 
 #set time = 15s
 clock.schedule(time_up, 15)
-pgzrun.go()  #run the code
+#set countdown
+clock.schedule_interval(countdown, 1)
+pgzrun.go()
