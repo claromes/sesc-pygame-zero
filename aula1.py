@@ -1,4 +1,4 @@
-#mu editor mode
+#Mu Editor - Pygame Zero mode
 import pgzrun
 
 virtual = Actor('virtual_idle') #/images/virtual_idle.png

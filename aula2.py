@@ -1,4 +1,5 @@
-import pgzrun  #mu editor mode
+#Mu Editor - Pygame Zero mode
+import pgzrun
 from pgzhelper import  *
 from random import randint  #random int numbers
 

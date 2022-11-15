@@ -1,6 +1,8 @@
 '''Flappy Game by Claromes
 Assets by Pixel Frog, Zacchary Dempsey-Plante, ObsydianX and SVL
 Helper by A Posteriori
+
+Mu Editor - Pygame Zero mode
 '''
 
 import pgzrun
