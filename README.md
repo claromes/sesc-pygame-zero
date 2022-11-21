@@ -32,8 +32,8 @@ Introdução ao Pygame Zero
 
 <img src="./doc/flappy.gif" width="500">
 
-# Copyright
-### Assets
+# Assets - Copyright
+### Sprites
 [Pixel Adventure by Pixel Frog](https://pixelfrog-assets.itch.io/pixel-adventure-1)
 
 [Forest Background by edermunizz](https://edermunizz.itch.io/free-pixel-art-forest)
@@ -42,7 +42,7 @@ Introdução ao Pygame Zero
 
 [A Posteriori](https://www.aposteriori.com.sg/pygame-zero-helper/)
 
-### Font
+### Fonte
 
 [Pixellari by Zacchary Dempsey-Plante](https://github.com/zedseven/Pixellari)
 
@@ -50,7 +50,7 @@ Introdução ao Pygame Zero
 
 [Interface SFX Pack 1 by ObsydianX](https://obsydianx.itch.io/interface-sfx-pack-1)
 
-### Music Themes
+### Trilhas Sonoras
 
 [RPG Music Pack by SVL](https://svl.itch.io/rpg-music-pack-svl)
 
